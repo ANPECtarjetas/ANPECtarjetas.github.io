@@ -1,50 +1,19 @@
-import confetti from "canvas-confetti";
-const confettiBtn = document.querySelector(".canvas-confetti-btn");
-let exploding = false;
-const defaults = {
-  particleCount: 500,
-  spread: 80,
-  angle: 50,
-};
-const fire = (particleRatio, opts) => {
-  confetti(
-    Object.assign({}, defaults, opts, {
-      particleCount: Math.floor(defaults.particleCount * particleRatio),
-    })
-  );
-};
-confettiBtn.addEventListener("click", () => {
-  if (exploding) {
+var card = document.querySelector(".card");
+var playing = false;
+
+card.addEventListener('click',function() {
+  if(playing)
     return;
-  }
-  exploding = true;
-  confettiBtn.classList.add("animate__rubberBand");
-  window.setTimeout(() => {
-    fire(0.25, {
-      spread: 26,
-      startVelocity: 55,
-    });
-    fire(0.2, {
-      spread: 60,
-    });
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-    });
-    window.setTimeout(() => {
-      confettiBtn.classList.remove("animate__rubberBand");
-      exploding = false;
-    }, 300);
-  }, 300);
+  
+  playing = true;
+  anime({
+    targets: card,
+    scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
+    rotateY: {value: '+=180', delay: 200},
+    easing: 'easeInOutSine',
+    duration: 400,
+    complete: function(anim){
+       playing = false;
+    }
+  });
 });
