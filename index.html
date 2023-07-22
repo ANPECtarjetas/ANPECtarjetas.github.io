@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarjeta Interactiva</title>
   <link rel="stylesheet" href="styles.css">
+  <title>Tarjeta Interactiva</title>
 </head>
 <body>
-  <div class="card">
-    <h1>La empresa te desea felicidades</h1>
+  <div class="card" onclick="handleClick()">
+    <h1>¡Felicidades!</h1>
+    <p>Haz clic en la tarjeta para ver el efecto confetti.</p>
+  </div>
+
+  <div class="confetti" id="confetti">
+    <div class="confetti-piece"></div>
   </div>
 
   <script src="script.js"></script>
