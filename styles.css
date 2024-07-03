@@ -1,8 +1,9 @@
 .flip-container {
     background-color: transparent;
+    background-position: center center;
     width: 100%;
     height: 776px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(250, 233, 0);
     perspective: 1000px; 
   }
   .card {
@@ -27,8 +28,27 @@ padding-top: 10%;
     font-family: 'Lobster', cursive;
   }
   .front {
-    background-color: #ffffff;
-    color: rgb(80, 80, 80);
+    background-image: url("imagenes/bck.jpg");
+    background-position: center center;
+
+/* Para que la imagen de fondo no se repita */
+
+background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+background-attachment: fixed;
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+background-size: cover;
+
+/* Se muestra un color de fondo mientras se está cargando la imagen
+
+de fondo o si hay problemas para cargarla */
+
+    background-color: #ffee00;
+    color: rgb(255, 255, 255);
     font-family: 'Lobster', cursive;
     text-align: center;
 
@@ -68,3 +88,7 @@ padding-top: 135%;
         100%   { transform: translate(0, -0px); }   
     }
         
+.click{
+  mix-blend-mode: multiply;
+  opacity: 50%;
+}
